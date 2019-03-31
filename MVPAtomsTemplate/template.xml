@@ -2,7 +2,7 @@
 <template
     format="5"
     revision="1"
-    name="MVPAtoms 家族"
+    name="MVPAtoms 全家桶"
     minApi="9"
     minBuildApi="15"
     description="一键创建 MVPAtoms 单个页面所需要的全部组件，将这个高度可配置的模板献给强大的 MVPAtoms, 使用详情请见 README">
@@ -86,7 +86,7 @@
         name="Fragment Layout Name"
         type="string"
         constraints="layout|nonempty"
-        suggest="hh_fragment_${classToResource(pageName)}"
+        suggest="fragment_${classToResource(pageName)}"
         default="fragment_main"
         visibility="needFragment"
         help="Fragment 创建之前需要填写 Fragment 的布局名，若布局已创建就直接填写此布局名，若还没创建此布局，请勾选下面的单选框" /> 

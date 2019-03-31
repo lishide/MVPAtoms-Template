@@ -4,6 +4,7 @@ package ${componentPackageName};
 import com.vea.atoms.mvp.di.component.AppComponent;
 
 import ${moudlePackageName}.${pageName}Module;
+import ${contractPackageName}.${pageName}Contract;
 
 <#if needActivity && needFragment>
 import com.vea.atoms.mvp.di.scope.ActivityScope;
@@ -17,6 +18,7 @@ import com.vea.atoms.mvp.di.scope.FragmentScope;
 import ${fragmentPackageName}.${pageName}Fragment;
 </#if>
 
+import dagger.BindsInstance;
 import dagger.Component;
 
 <#if needActivity && needFragment>
@@ -26,7 +28,7 @@ import dagger.Component;
 <#elseif needFragment>
 @FragmentScope
 </#if>
-@Component(modules = ${pageName}Module.class,dependencies = AppComponent.class)
+@Component(modules = ${pageName}Module.class, dependencies = AppComponent.class)
 public interface ${pageName}Component {
   <#if needActivity && needFragment>
 	void inject(${pageName}Activity activity);
@@ -34,4 +36,14 @@ public interface ${pageName}Component {
   <#elseif needActivity || needFragment>
     void inject(<#if needFragment>${pageName}Fragment fragment<#else>${pageName}Activity activity</#if>);
   </#if>
+
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        ${pageName}Component.Builder view(${pageName}Contract.View view);
+
+        ${pageName}Component.Builder appComponent(AppComponent appComponent);
+
+        ${pageName}Component build();
+    }
 }

@@ -9,6 +9,7 @@ import com.vea.atoms.mvp.di.scope.ActivityScope
 <#elseif needFragment>
 import com.vea.atoms.mvp.di.scope.FragmentScope
 </#if>
+import com.vea.atoms.mvp.integration.IRepositoryManager
 
 import javax.inject.Inject
 

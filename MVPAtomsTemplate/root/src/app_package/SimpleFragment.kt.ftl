@@ -1,9 +1,4 @@
 package ${fragmentPackageName}
-     
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 
 import com.vea.atoms.mvp.base.BaseFragment
 import com.vea.atoms.mvp.di.component.AppComponent
@@ -36,7 +31,7 @@ class ${pageName}Fragment : BaseFragment<${pageName}Presenter>(), ${pageName}Con
         }
     }
 
-    override fun setupFragmentComponent(appComponent:AppComponent) {
+    override fun setupFragmentComponent(appComponent: AppComponent) {
         Dagger${pageName}Component //如找不到该类,请编译一下项目
                 .builder()
                 .appComponent(appComponent)
@@ -49,7 +44,7 @@ class ${pageName}Fragment : BaseFragment<${pageName}Presenter>(), ${pageName}Con
         return R.layout.${fragmentLayoutName}
     }
 
-    override fun initData(savedInstanceState:Bundle?) {
+    override fun initData(savedInstanceState: Bundle?) {
 
     }
 

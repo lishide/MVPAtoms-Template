@@ -25,7 +25,7 @@ import ${presenterPackageName}.${pageName}Presenter
  */
 class ${pageName}Activity : BaseActivity<${pageName}Presenter>(), ${pageName}Contract.View {
 
-    override fun setupActivityComponent(appComponent:AppComponent) {
+    override fun setupActivityComponent(appComponent: AppComponent) {
         Dagger${pageName}Component //如找不到该类,请编译一下项目
                 .builder()
                 .appComponent(appComponent)
@@ -38,7 +38,7 @@ class ${pageName}Activity : BaseActivity<${pageName}Presenter>(), ${pageName}Con
         return R.layout.${activityLayoutName}
     }
 
-    override fun initData(savedInstanceState:Bundle?) {
+    override fun initData(savedInstanceState: Bundle?) {
 
     }
 

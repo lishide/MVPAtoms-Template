@@ -3,7 +3,7 @@ package ${componentPackageName}
 import com.vea.atoms.mvp.di.component.AppComponent
 
 import ${moudlePackageName}.${pageName}Module
-
+import ${contractPackageName}.${pageName}Contract
 <#if needActivity && needFragment>
 import com.vea.atoms.mvp.di.scope.ActivityScope
 import ${ativityPackageName}.${pageName}Activity
@@ -15,7 +15,7 @@ import ${ativityPackageName}.${pageName}Activity
 import com.vea.atoms.mvp.di.scope.FragmentScope
 import ${fragmentPackageName}.${pageName}Fragment
 </#if>
-
+import dagger.BindsInstance
 import dagger.Component
 
 <#if needActivity && needFragment>
@@ -25,12 +25,22 @@ import dagger.Component
 <#elseif needFragment>
 @FragmentScope
 </#if>
-@Component(modules = arrayOf(${pageName}Module::class), dependencies = arrayOf(AppComponent::class))
+@Component(modules = [${pageName}Module::class], dependencies = [AppComponent::class])
 interface ${pageName}Component {
   <#if needActivity && needFragment>
-	fun inject(activity:${pageName}Activity)
-	fun inject(fragment:${pageName}Fragment)
+    fun inject(activity: ${pageName}Activity)
+    fun inject(fragment: ${pageName}Fragment)
   <#elseif needActivity || needFragment>
-    fun inject(<#if needFragment>fragment:${pageName}Fragment<#else>activity:${pageName}Activity</#if>)
+    fun inject(<#if needFragment>fragment: ${pageName}Fragment<#else>activity: ${pageName}Activity</#if>)
   </#if>
+
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun view(view: ${pageName}Contract.View): Builder
+
+        fun appComponent(appComponent: AppComponent): Builder
+
+        fun build(): ${pageName}Component
+    }
 }

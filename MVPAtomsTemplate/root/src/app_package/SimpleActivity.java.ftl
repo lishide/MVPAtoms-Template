@@ -1,8 +1,9 @@
 package ${ativityPackageName};
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.vea.atoms.mvp.di.component.AppComponent;
 import ${packageName}.R;
@@ -32,5 +33,5 @@ public class ${pageName}Activity extends BaseActivity<${pageName}Presenter> impl
     public void initData(@Nullable Bundle savedInstanceState) {
 
     }
-   
+
 }

@@ -1,10 +1,11 @@
 package ${fragmentPackageName}
 
+import android.os.Bundle
+
 import com.vea.atoms.mvp.base.BaseFragment
 import com.vea.atoms.mvp.di.component.AppComponent
 
 import ${componentPackageName}.Dagger${pageName}Component
-import ${moudlePackageName}.${pageName}Module
 import ${contractPackageName}.${pageName}Contract
 import ${presenterPackageName}.${pageName}Presenter
 
@@ -33,11 +34,11 @@ class ${pageName}Fragment : BaseFragment<${pageName}Presenter>(), ${pageName}Con
 
     override fun setupFragmentComponent(appComponent: AppComponent) {
         Dagger${pageName}Component //如找不到该类,请编译一下项目
-                .builder()
-                .appComponent(appComponent)
-                .${extractLetters(pageName[0]?lower_case)}${pageName?substring(1,pageName?length)}Module(${pageName}Module(this))
-                .build()
-                .inject(this)
+            .builder()
+            .appComponent(appComponent)
+            .view(this)
+            .build()
+            .inject(this)
     }
 
     override fun getLayoutId(): Int {

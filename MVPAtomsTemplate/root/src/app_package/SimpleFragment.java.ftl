@@ -1,7 +1,10 @@
 package ${fragmentPackageName};
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.vea.atoms.mvp.base.BaseFragment;
 import com.vea.atoms.mvp.di.component.AppComponent;
@@ -13,7 +16,7 @@ import ${presenterPackageName}.${pageName}Presenter;
 
 import ${packageName}.R;
 
-public class ${pageName}Fragment extends BaseFragment<${pageName}Presenter> implements ${pageName}Contract.View{
+public class ${pageName}Fragment extends BaseFragment<${pageName}Presenter> implements ${pageName}Contract.View {
 
     public static ${pageName}Fragment newInstance() {
         ${pageName}Fragment fragment = new ${pageName}Fragment();

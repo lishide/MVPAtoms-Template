@@ -6,7 +6,6 @@ import com.vea.atoms.mvp.base.BaseActivity
 import com.vea.atoms.mvp.di.component.AppComponent
 import ${packageName}.R
 import ${componentPackageName}.Dagger${pageName}Component
-import ${moudlePackageName}.${pageName}Module
 import ${contractPackageName}.${pageName}Contract
 import ${presenterPackageName}.${pageName}Presenter
 
@@ -29,7 +28,7 @@ class ${pageName}Activity : BaseActivity<${pageName}Presenter>(), ${pageName}Con
         Dagger${pageName}Component //如找不到该类,请编译一下项目
                 .builder()
                 .appComponent(appComponent)
-                .${extractLetters(pageName[0]?lower_case)}${pageName?substring(1,pageName?length)}Module(${pageName}Module(this))
+                .view(this)
                 .build()
                 .inject(this)
     }
